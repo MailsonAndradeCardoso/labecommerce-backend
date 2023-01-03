@@ -1,0 +1,3 @@
+
+process.argv -  so funcionou instalando esse comando
+npm i --save-dev @types/node

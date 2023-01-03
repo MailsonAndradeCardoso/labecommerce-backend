@@ -1,15 +1,23 @@
 {
-  "name": "aula-nodejs",
+  "name": "labecommerce-backend",
   "version": "1.0.0",
-  "description": "labecommerce-backend",
+  "description": "process.argv -  so funcionou instalando esse comando\r npm i --save-dev @types/node",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "start": "node index.js",
-    "joguinho":"node par-ou-impar.js",
+    "start": "tsc && node ./build/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "url": "git+https://github.com/MailsonAndradeCardoso/labecommerce-backend.git"
+  },
   "keywords": [],
-  "author": "Mailson Cardoso",
-  "license": "ISC"
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MailsonAndradeCardoso/labecommerce-backend/issues"
+  },
+  "homepage": "https://github.com/MailsonAndradeCardoso/labecommerce-backend#readme",
+  "devDependencies": {
+    "typescript": "^4.9.4"
+  }
 }
