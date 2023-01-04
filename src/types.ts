@@ -17,3 +17,8 @@ export type TUser = {
     quantity : number
     totalPrice  : number
   }
+
+  export enum Category{
+    GAMES = 'GAMES',
+    MUSICAL= 'MUSICAL'
+}
