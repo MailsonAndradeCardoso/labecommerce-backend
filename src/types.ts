@@ -11,9 +11,14 @@ export type TUser = {
     category: string
   }
 
-  export type TBuy = {
+  export type TPurchase = {
     userId: string
     productId : string
     quantity : number
     totalPrice  : number
+  }
+
+  export enum CATEGORY {
+    GAMES = 'games',
+    MUSICAL = 'instrumentos'
   }
