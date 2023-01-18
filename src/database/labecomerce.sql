@@ -88,11 +88,68 @@ SELECT * FROM products;
 SELECT * FROM products
 WHERE id = "11";
 
---delete user by id, delete line based on mocked value
+--delete user by id
 DELETE FROM users WHERE id = "10";
+
+--delete products by id
 DELETE FROM products WHERE id="7";
 
+--edit user by id
+UPDATE users SET email= "mailson@editado.com", password="1212" WHERE id ="25";
 
+--edit products by id
+UPDATE products SET price= 99.90 WHERE id= "15";
 
+--ex 3
+--get all products versão 1
+--returns the result sorted by the price column in ascending order
+--limit the result to 20 starting with the first item
 
+SELECT*FROM products
+ORDER BY price ASC
+LIMIT 20;
 
+--get all products versão 2
+--mock a price range, for example between 100.00 and 300.00
+--returns products with prices within the mocked range in ascending order
+
+SELECT * FROM products
+WHERE price >="100" AND price <="300"
+ORDER BY price ASC;
+
+--18/01
+--ex 1 
+-- create order table
+
+CREATE TABLE purchases(
+    id TEXT PRIMARY KEY UNIQUE NOT NULL,
+    total_price REAL UNIQUE NOT NULL,
+    paid INTEGER NOT NULL,
+    buyer_id TEXT NOT NULL,
+    delivered_at TEXT,
+    FOREIGN KEY (buyer_id) REFERENCES users(id)
+);
+-- ex2
+--create two orders for each registered user
+INSERT INTO purchases(id, total_price, paid, buyer_id, delivered_at)
+VALUES
+("1", 99.95, 1, "1", "NULL"),
+("2", 149.65, 1, "2", "NULL"),
+("3", 299.95, 1, "3", "NULL"),
+("4", 69.95, 1, "4", "NULL");
+
+--edit an order's due date status
+UPDATE purchases
+set delivered_at = DATETIME()
+WHERE id = "1";
+
+SELECT * FROM purchases;
+
+DROP TABLE purchases;
+
+-- ex 3
+-- Create the query using join to simulate a purchase history endpoint of a given user
+-- Mock up a value for the buyer's id, it must be one of those used in exercise 2
+
+SELECT * FROM purchases
+INNER JOIN users ON users.id = buyer_id;
